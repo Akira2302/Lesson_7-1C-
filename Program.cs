@@ -6,25 +6,27 @@
 // 8 7,8 - 7,1 9
 
 Console.WriteLine("Введите количество строк");
-int linesVol = Convert.ToInt32(Console.ReadLine());
+int rows = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите количество столбцов");
-int columnsVol = Convert.ToInt32(Console.ReadLine());
-double[,] numbers = new double[linesVol, columnsVol];
-FillArrayRandomNumbers(numbers);
-PrintArray(numbers);
+int colums = Convert.ToInt32(Console.ReadLine());
+double[,] numbers = new double[rows, colums];
+FillArray2D(numbers);
+PrintArray2D(numbers);
 
-void FillArrayRandomNumbers(double[,] array)
+
+void FillArray2D(double[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = Convert.ToDouble(new Random().Next(-99, 99)) / 10;
+            array[i, j] = new Random().Next(-99, 99) / 10.0;
         }
     }
 }
 
-void PrintArray(double[,] array)
+
+void PrintArray2D(double[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -32,6 +34,14 @@ void PrintArray(double[,] array)
         {
             Console.Write(array[i, j] + " ");
         }
-        Console.WriteLine("");
+        Console.WriteLine();
     }
+    Console.WriteLine();
+}
+
+
+int ReadInt(string message)
+{
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
 }
